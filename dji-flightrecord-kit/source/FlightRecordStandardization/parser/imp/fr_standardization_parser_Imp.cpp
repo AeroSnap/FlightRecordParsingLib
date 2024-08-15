@@ -35,6 +35,10 @@
 #include <chrono>
 #include <sstream>
 #include <iomanip>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <streambuf>
 
 using namespace DJIFR::standardization;
 using namespace DJI::FlightRecord;
@@ -161,7 +165,7 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key,const int depa
     
     auto error = parser_->parseDetailData(parser_block);
     
-    {
+    //{
         DJI::FlightRecord::VersionExtension version_extension;
         parser_->obtainVersionExtension(version_extension);
         
@@ -245,21 +249,21 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key,const int depa
         std::string sign_str;
         toHex(dst, dstlen, sign_str);
         
-        dji::core::CLHttpRequest *request = dji::core::CLHttpRequest::Post("https://statistical-report.djiservice.org/api/report/web", (char *)bodyStr.c_str(), bodyStr.length());
-        request->SetTimeout(30);
-        request->SetRequestHeader("Accept", "application/json");
-        request->SetRequestHeader("appid", "572918");
-        request->SetRequestHeader("sign", sign_str);
-        request->SetRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        // printf("--------request_json ------ %s \n"  , request_json.c_str());
-        request->SendRequest([this, request_json, sdk_key, callback, featurePointMap, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
-            dji::core::CLHttpRequest *httpReq = dji::core::CLHttpRequest::Post("https://dev.dji.com/openapi/v1/flight-records/keychains", (char *)request_json.c_str(), request_json.length());
-            httpReq->SetTimeout(30);
-            httpReq->SetRequestHeader("Accept", "application/json");
-            httpReq->SetRequestHeader("Api-Key", sdk_key);
-            uint64_t now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-            httpReq->SendRequest([this, callback, featurePointMap, &now, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
-                uint64_t current = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+        //dji::core::CLHttpRequest *request = dji::core::CLHttpRequest::Post("https://statistical-report.djiservice.org/api/report/web", (char *)bodyStr.c_str(), bodyStr.length());
+        //request->SetTimeout(30);
+        //request->SetRequestHeader("Accept", "application/json");
+        //request->SetRequestHeader("appid", "572918");
+        //request->SetRequestHeader("sign", sign_str);
+        //request->SetRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        //printf("--------request_json ------ %s \n"  , request_json.c_str());
+        //request->SendRequest([this, request_json, sdk_key, callback, featurePointMap, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
+            //dji::core::CLHttpRequest *httpReq = dji::core::CLHttpRequest::Post("https://dev.dji.com/openapi/v1/flight-records/keychains", (char *)request_json.c_str(), request_json.length());
+            //httpReq->SetTimeout(30);
+            //httpReq->SetRequestHeader("Accept", "application/json");
+            //httpReq->SetRequestHeader("Api-Key", sdk_key);
+            //uint64_t now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+            //httpReq->SendRequest([this, callback, featurePointMap, &now, version_extension](dji::core::CLHttpRequest *request, bool succeeded) {
+                /*uint64_t current = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
                 if (callback == NULL) {
                     delete request;
                     return;
@@ -269,23 +273,28 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key,const int depa
                     callback(ServerError::NetworkIsNotReachable, "");
                     delete request;
                     return;
-                }
+                }*/
+
+                std::ifstream t("/tmp/server_output.json");
+                std::stringstream buffer;
+                buffer << t.rdbuf();
                 
-                std::string error;
-                auto json = json11::Json::parse((char *)request->GetResponseData(), error);
-                if (error.length() > 0) {
-                    callback(ServerError::ParserFailure, error);
-                    delete request;
-                    return;
+                std::string error_str;
+                //auto json = json11::Json::parse((char *)request->GetResponseData(), error);
+                auto json = json11::Json::parse(buffer.str(), error_str);
+                if (error_str.length() > 0) {
+                    callback(ServerError::ParserFailure, error_str);
+                    //delete request;
+                    //return;
                 }
-                
+
                 auto result = json["result"];
-                switch (request->GetResponseCode()) {
-                    case 200:
-                    {
+                //switch (request->GetResponseCode()) {
+                    //case 200:
+                    //{
                         auto keychainsArray = json["data"];
                         auto keychains_arr_json = keychainsArray.array_items();
-                        // printf("--------request success------ %d \n"  , keychains_arr_json.size());
+                        //printf("--------request success------ %d \n"  , keychains_arr_json.size());
                         std::vector<std::map<FeaturePoint, DJI::FlightRecord::AESKeychainPtr>> plaintext_all_aes_key;
                         for (auto i = 0; i < keychains_arr_json.size(); i ++) {
                             auto keychains_json = keychains_arr_json.at(i).array_items();
@@ -295,8 +304,8 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key,const int depa
                                 auto featurePoint_iter = featurePointMap.find(keychain_json["featurePoint"].string_value());
                                 if (featurePoint_iter == featurePointMap.end()) {
                                     callback(ServerError::ParserFailure, "");
-                                    delete request;
-                                    return;
+                                    //delete request;
+                                    //return;
                                 }
                                 auto feature_point = (*featurePoint_iter).second;
                                 
@@ -339,7 +348,7 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key,const int depa
                         
                         
                         callback(ServerError::Success, result["msg"].string_value());
-                    }
+                    /*}
                         break;
                     case 400:
                     {
@@ -362,10 +371,10 @@ SDKError ParserImp::startRequestParser(const std::string& sdk_key,const int depa
                         
                     default:
                         break;
-                }
-            });
-        });
-    }
+                }*/
+            //});
+        //});
+    //}
     
     return convertParserResultToPublic(error);
 }

@@ -1,0 +1,15 @@
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/CMakeFiles/FRSample.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/CMakeFiles/edit_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/CMakeFiles/rebuild_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/CMakeFiles/FlightRecordStandardizationCpp.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/CMakeFiles/edit_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/CMakeFiles/rebuild_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/StandardizationBuild/CMakeFiles/FlightRecordStandardization.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/StandardizationBuild/CMakeFiles/edit_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/StandardizationBuild/CMakeFiles/rebuild_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/StandardizationBuild/EngineBuild/CMakeFiles/FlightRecordEngine.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/StandardizationBuild/EngineBuild/CMakeFiles/edit_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/StandardizationBuild/EngineBuild/CMakeFiles/rebuild_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/standardProtobufBuild/CMakeFiles/DJIProtobuf.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/standardProtobufBuild/CMakeFiles/edit_cache.dir
+/Users/mostafasafaeipour/aerosnap/FlightRecordParsingLib/dji-flightrecord-kit/build/Mac/FRSample/StandardizationCppBuild/standardProtobufBuild/CMakeFiles/rebuild_cache.dir

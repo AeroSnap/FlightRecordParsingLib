@@ -294,7 +294,7 @@ void CLHttpRequest::OnRecvHeader(char *ptr, size_t size)
         std::string content = std::string(ptr, size);
         content.erase(content.find_last_not_of(" \n\r\t") + 1);
         if (content.size() > 0) {
-            std::transform(content.begin(), content.end(), content.begin(), TO_LOWER);
+            std::transform(content.begin(), content.end(), content.begin(), ::tolower);
             
             std::string::size_type npos = content.find_first_of(":");
             if (npos != std::string::npos) {

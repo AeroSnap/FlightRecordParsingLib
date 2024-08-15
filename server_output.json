@@ -1,0 +1,55 @@
+{
+    "result": {
+        "code": 0,
+        "msg": ""
+    },
+    "data": [
+        [
+            {
+                "featurePoint": "FR_Standardization_Feature_Base_1",
+                "aesKey": "FSu4BGyv8hSwo2lVmTrpRLlYCvVS327gqQ5RTt1GivI=",
+                "aesIv": "cUL33fLp8aKNWvgmlOFqTQ=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_Vision_2",
+                "aesKey": "OnVCjFSxbP2/vkudBNaPdRiGUgpwQ639naUjMoaOf8A=",
+                "aesIv": "A8JNV3O5VDJ3oM97dl/wjg=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_AirLink_5",
+                "aesKey": "5UKZVYVGUiPrdlVxBNQyB5Z/Xgk4sjywUgsryGocV1A=",
+                "aesIv": "XvCl5Db4ByFuXJJyMMR5xw=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_AfterSales_6",
+                "aesKey": "VgPdZwDf97uADnWYlsYqZc5AV4iL0D5jj12yJCsTY4I=",
+                "aesIv": "F0DpFx/g05/uSDeFDmLq3Q=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_DJIFlyCustom_7",
+                "aesKey": "eke2gyOxNYf8jUVpdtauEqqIop4Q/QKQu6AXuRiIUZI=",
+                "aesIv": "zwgV8rlLebbYvh9Plc5hPw=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_Gimbal_10",
+                "aesKey": "9iRJFyn2waX6koefwlPys/TQB6yf640C7zr4V3eveW0=",
+                "aesIv": "08OE/blForPXKVKZfERMcA=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_RC_11",
+                "aesKey": "Q9fQfIkMLNwYV6SCc/vS0ut4tiFwvULeGdVQSZnJEN0=",
+                "aesIv": "oOFZKe2FBQXcqohQpVoikQ=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_Camera_12",
+                "aesKey": "okJlLRKjkKEAQ8UsViiubWiXhYh3WCdloF/qrsHVi2M=",
+                "aesIv": "F/CQKZMgy5RjkMC6uW4nIQ=="
+            },
+            {
+                "featurePoint": "FR_Standardization_Feature_Battery_13",
+                "aesKey": "0tiyQpX1IK7KcPdjOQhA2emZA9YeCNz7smRLWL5t6ZE=",
+                "aesIv": "RZvT2pD0iFpkf76eh/53cA=="
+            }
+        ]
+    ]
+}

@@ -4,7 +4,7 @@ ARG SDK_KEY
 ENV SDK_KEY=${SDK_KEY}
 
 RUN apt-get update
-RUN apt-get install -y wget git gcc g++ make cmake curl libssl-dev libcurl4-openssl-dev
+RUN apt-get install -y wget git gcc g++ make cmake curl libssl-dev libcurl4-openssl-dev gdb
 
 WORKDIR /parse_flyrecord
 
@@ -13,4 +13,5 @@ COPY . .
 WORKDIR /parse_flyrecord/dji-flightrecord-kit/build/Ubuntu/FRSample
 RUN sh generate.sh
 
-ENTRYPOINT ["./FRSample"]
+ENTRYPOINT ["bash"]
+
