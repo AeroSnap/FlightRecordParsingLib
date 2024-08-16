@@ -9,6 +9,7 @@ RUN apt-get install -y wget git gcc g++ make cmake curl libssl-dev libcurl4-open
 WORKDIR /parse_flyrecord
 
 COPY . .
+COPY ./server_output.json /tmp/server_output.json
 
 WORKDIR /parse_flyrecord/dji-flightrecord-kit/build/Ubuntu/FRSample
 RUN sh generate.sh
